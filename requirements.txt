@@ -1,0 +1,10 @@
+dotenv
+fastapi
+uvicorn
+pydantic
+google-genai
+openai
+geopy
+opencage
+httpx
+aiosqlite
