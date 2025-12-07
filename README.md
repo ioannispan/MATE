@@ -18,24 +18,13 @@ This repository provides the **architectural skeleton**. It is designed to be **
 
 ### 1. Installation
 ```bash
-git clone https://github.com/yourusername/mate-framework.git
-cd mate-framework
+git clone https://github.com/ioannispan/MATE.git
+cd MATE
 pip install -e .
 ```
 
 ### 2. Configuration
-Create a `.env` file in the root directory:
-```bash
-# LLM Providers (Choose one or both)
-GOOGLE_GENAI_API_KEY=your_key
-OPENROUTER_API_KEY=your_key
-
-# Search (Optional)
-SERP_API_KEY=your_key
-
-# Logging
-LOG_LEVEL=INFO
-```
+Copy `.env.example` to `.env` and configure your LLM providers (Google Gemini or OpenRouter/OpenAI).
 
 ### 3. Implementation (Required)
 Since MATE is a framework, you must implement the "Hands" of the system in `mate/tools/` to make it useful:
@@ -44,6 +33,7 @@ Since MATE is a framework, you must implement the "Hands" of the system in `mate
 2.  **Trail Logic:** Edit `mate/tools/trail.py` to implement `execute_trail_query`.
 3.  **Weather:** Edit `mate/tools/meteo.py` to connect to a weather API (e.g., OpenMeteo).
 4.  **Geocoding:** Edit `mate/tools/geocoding.py` to connect to a geocoder (e.g., Google Maps, Mapbox).
+5.  **Web:** Edit `mate/tools/web.py` to connect to a web search service (e.g., SerpAPI).
 
 ### 4. Running
 Start the API Server:
