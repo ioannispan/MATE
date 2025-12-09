@@ -6,8 +6,8 @@ Each agent inherits from BaseAgent and is initialized with its specific
 prompt and toolset.
 """
 
-from mate.core.base_agent import BaseAgent
-from mate.tools.definitions import (
+from mate.agents.base_agent import BaseAgent
+from mate.agents.tools.definitions import (
     TRAIL_TOOLS, 
     GEOCODING_TOOLS, 
     METEO_TOOLS, 

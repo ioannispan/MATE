@@ -6,13 +6,13 @@ This repository provides the **architectural skeleton**. It is designed to be **
 
 ## 🏗 Architecture
 
-*   **Router (The Hub):** Managed by `mate.router`. It maintains conversation state, handles LLM streaming, and delegates tasks.
+*   **Router (The Hub):** Managed by `mate/orchestration/`. It maintains conversation state, handles LLM streaming, and delegates tasks.
 *   **Specialist Agents (The Spokes):**
     *   `GeocodingAgent`: Handles geocoding and location context.
     *   `TrailAgent`: Handles database queries for activities/trails.
     *   `MeteoAgent`: Handles weather forecasting.
     *   `WebAgent`: Handles general knowledge retrieval.
-*   **Tools (The Hands):** Defined as JSON schemas in `mate/tools/definitions.py`. Implementations are located in `mate/tools/`.
+*   **Tools (The Hands):** Defined as JSON schemas in `mate/agents/tools/definitions.py`. Implementations are located in `mate/agents/tools/`.
 
 ## 🚀 Getting Started
 
@@ -27,13 +27,13 @@ pip install -e .
 Copy `.env.example` to `.env` and configure your LLM providers (Google Gemini or OpenRouter/OpenAI).
 
 ### 3. Implementation (Required)
-Since MATE is a framework, you must implement the "Hands" of the system in `mate/tools/` to make it useful:
+Since MATE is a framework, you must implement the "Hands" of the system in `mate/agents/tools/` to make it useful:
 
 1.  **Database Connection:** Edit `mate/core/database.py` to connect to your SQLite/PostgreSQL/Vector DB.
-2.  **Trail Logic:** Edit `mate/tools/trail.py` to implement `execute_trail_query`.
-3.  **Weather:** Edit `mate/tools/meteo.py` to connect to a weather API (e.g., OpenMeteo).
-4.  **Geocoding:** Edit `mate/tools/geocoding.py` to connect to a geocoder (e.g., Google Maps, Mapbox).
-5.  **Web:** Edit `mate/tools/web.py` to connect to a web search service (e.g., SerpAPI).
+2.  **Trail Logic:** Edit `mate/agents/tools/trail.py` to implement the database query logic.
+3.  **Weather:** Edit `mate/agents/tools/meteo.py` to connect to a weather API.
+4.  **Geocoding:** Edit `mate/agents/tools/geocoding.py` to connect to a geocoder.
+5.  **Web:** Edit `mate/agents/tools/web.py` to connect to a web search service.
 
 ### 4. Running
 Start the API Server:
@@ -47,8 +47,8 @@ python -m mate.api.client
 ```
 
 ## 🧩 Customization
-*   **Prompts:** Modify `mate/agents/prompts.py` to describe your specific database schema to the Agents.
-*   **Tools:** Add new tools in `mate/tools/definitions.py` and register them in `mate/tools/registry.py`.
+*   **Prompts:** Modify `mate/agents/prompts.py` and `mate/orchestration/prompt.py` to describe your specific database schema to the Agents and the Router.
+*   **Tools:** Add new tools in `mate/agents/tools/definitions.py` and register them in `mate/agents/tools/registry.py`.
 
 ## 📄 License
 MIT

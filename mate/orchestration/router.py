@@ -9,7 +9,7 @@ delegates tasks to specialist agents, and streams the final response.
 import json
 import datetime
 import time
-from typing import AsyncGenerator, List, Dict, Any, Tuple, Optional
+from typing import AsyncGenerator, List, Dict, Any, Tuple
 
 # API Clients
 from google import genai
@@ -30,9 +30,9 @@ from mate.config import (
 )
 
 # Agent Imports
-from mate.agents.prompts import ROUTER_PROMPT
+from mate.orchestration.prompt import ROUTER_PROMPT
 from mate.agents.specialist import GeocodingAgent, TrailAgent, MeteoAgent, WebAgent
-from mate.tools.definitions import ROUTER_TOOLS
+from mate.orchestration.tool_definitions import ROUTER_TOOLS
 
 
 class TokenCounter:

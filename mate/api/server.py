@@ -3,7 +3,7 @@ import json
 import logging
 import time
 from contextlib import asynccontextmanager
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 import uvicorn
 from fastapi import APIRouter, FastAPI, HTTPException, status, Query
@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field, field_validator
 
-from mate.router import MATE
+from mate.orchestration.router import MATE
 
 # Configure logging
 logging.basicConfig(

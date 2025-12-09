@@ -15,7 +15,6 @@ from google import genai
 from google.genai import types
 from openai import AsyncOpenAI
 
-from mate.core.utils import extract_json_from_text, call_with_retry, transform_tool_declarations
 from mate.config import (
     EventType,
     GOOGLE_GENAI_API_KEY, 
@@ -24,8 +23,9 @@ from mate.config import (
     MAX_GENERATION_TURNS, 
     MAX_RETRIES
 )
+from mate.core.utils import extract_json_from_text, call_with_retry, transform_tool_declarations
 from mate.core.logger import logger
-from mate.tools.registry import execute_tool
+from mate.agents.tools.registry import execute_tool
 
 
 class BaseAgent:

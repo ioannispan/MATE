@@ -7,7 +7,7 @@ function implementations. It acts as the central dispatch for tool execution.
 
 from typing import Dict, Any, Callable, Awaitable
 from mate.core.logger import logger
-from mate.tools import geocoding, trail, meteo, web
+from mate.agents.tools import geocoding, trail, meteo, web
 
 # Map tool names to Async Functions
 TOOL_REGISTRY: Dict[str, Callable[..., Awaitable[Any]]] = {
